@@ -36,7 +36,7 @@ morgan.token("body", (req) => JSON.stringify(req.body));
 morgan.token("query", (req) => JSON.stringify(req.query));
 app.use(
   morgan(':method :url :status :response-time ms - query: :query - body: :body')
-);// Console
+);// console
 
 app.use(morgan("combined", { stream: accessLogStream })); // File
 

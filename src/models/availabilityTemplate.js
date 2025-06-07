@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const SlotSchema = new mongoose.Schema({
-  start: { type: String, required: true }, // Format: "09:00"
-  end: { type: String, required: true }    // Format: "09:30"
+  start: { type: String, required: true }, 
+  end: { type: String, required: true }  
 }, { _id: false });
 
 const AvailabilityTemplateSchema = new mongoose.Schema({
@@ -11,7 +11,7 @@ const AvailabilityTemplateSchema = new mongoose.Schema({
     ref: 'Provider',
     required: true
   },
-  weekday: { type: Number, required: true, min: 0, max: 6 }, // 0 = Sunday
+  weekday: { type: Number, required: true, min: 0, max: 6 },
   slots: { type: [SlotSchema], default: [] }
 }, { timestamps: true , versionKey: false });
 

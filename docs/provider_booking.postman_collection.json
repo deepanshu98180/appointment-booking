@@ -1,0 +1,909 @@
+{
+	"info": {
+		"_postman_id": "901a63ce-85c5-4860-b6d5-b0fa8610c0fc",
+		"name": "provider_booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36135958"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "send",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCode\":\"+91\",\n    \"phone\":\"8888888888\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/auth/otp",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"auth",
+										"otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "verify",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCode\":\"+91\",\n    \"phone\":\"8888888888\",\n    \"otpType\":\"SIGNUP\",\n    \"otp\":\"1234\",\n    \"fcmToken\":\"qwerty\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/auth/verify",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"auth",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM2YzI5YTcyZDc3M2FiNThiYjhmNjMiLCJleHAiOjE3NDk3MjA4NTUsImlhdCI6MTc0ODQyNDg1NX0.dV1JZat62qpEHL19inxhLxsHC5-x9C0rrIHEjJVQAck",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCode\":\"+91\",\n    \"phone\":\"9818068817\",\n    \"otpType\":\"LOGIN\",\n    \"otp\":\"1234\",\n    \"fcmToken\":\"qwerty\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/auth/logout",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/profile",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullName\":\"test user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/profile",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ0NmNiMjA4NGZkYWNhNTlkZDQ2YmIiLCJleHAiOjE3NTA2MTA3MzgsImlhdCI6MTc0OTMxNDczOH0.QDFrSB-sKYwuwRkVlho7tpeuWR6AL8C7FM9fbXnhXHQ",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "explore providers",
+					"item": [
+						{
+							"name": "get providers",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/explore-providers",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"explore-providers"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "availabilities",
+					"item": [
+						{
+							"name": "get availabilities",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/explore-providers/availability/68442db236c1b6520cf65982",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"explore-providers",
+										"availability",
+										"68442db236c1b6520cf65982"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get slots by date",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/explore-providers/availability/slots/68442db236c1b6520cf65982?date=2025-06-10",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"explore-providers",
+										"availability",
+										"slots",
+										"68442db236c1b6520cf65982"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2025-06-10"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ0MmRiMjM2YzFiNjUyMGNmNjU5ODIiLCJleHAiOjE3NTA1OTQ5MTcsImlhdCI6MTc0OTI5ODkxN30.9Bq4O1bVILsO_AYFRObGgQUUENZsA0oTQfnzIDPrV4c",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "bookings",
+					"item": [
+						{
+							"name": "bookings",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/bookings?page=1&limit=10",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"bookings"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "book slot",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"providerId\": \"68442db236c1b6520cf65982\",\n  \"slotId\": \"68449d04d98273e36aa4f295\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/bookings",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"bookings"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ0NmNiMjA4NGZkYWNhNTlkZDQ2YmIiLCJleHAiOjE3NTA2MTA3MzgsImlhdCI6MTc0OTMxNDczOH0.QDFrSB-sKYwuwRkVlho7tpeuWR6AL8C7FM9fbXnhXHQ",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ0NmNiMjA4NGZkYWNhNTlkZDQ2YmIiLCJleHAiOjE3NTA2MTA3MzgsImlhdCI6MTc0OTMxNDczOH0.QDFrSB-sKYwuwRkVlho7tpeuWR6AL8C7FM9fbXnhXHQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "PROVIDER",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "send",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCode\":\"+91\",\n    \"phone\":\"9999999999\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/provider/auth/otp",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"provider",
+										"auth",
+										"otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "verify",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCode\":\"+91\",\n    \"phone\":\"9999999999\",\n    \"otpType\":\"LOGIN\",\n    \"otp\":\"1234\",\n    \"fcmToken\":\"qwerty\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/provider/auth/verify",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"provider",
+										"auth",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ0MmRiMjM2YzFiNjUyMGNmNjU5ODIiLCJleHAiOjE3NTA1OTQ2MTAsImlhdCI6MTc0OTI5ODYxMH0.54sY1Mau7zTzEt-0zf6tnfmI0FGYl2PprnaixJ-BFyc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"countryCode\":\"+91\",\n    \"phone\":\"9818068817\",\n    \"otpType\":\"LOGIN\",\n    \"otp\":\"1234\",\n    \"fcmToken\":\"qwerty\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/user/auth/logout",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"user",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/provider/profile",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"provider",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullName\":\"Provider 1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/provider/profile",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"provider",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ0MmRiMjM2YzFiNjUyMGNmNjU5ODIiLCJleHAiOjE3NTA1OTQ5MTcsImlhdCI6MTc0OTI5ODkxN30.9Bq4O1bVILsO_AYFRObGgQUUENZsA0oTQfnzIDPrV4c",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "availabilities",
+					"item": [
+						{
+							"name": "get availabilities",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/provider/availability",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"provider",
+										"availability"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get slots by date",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/provider/availability/slots?date=2025-06-09",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"provider",
+										"availability",
+										"slots"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2025-06-09"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set availabilities",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n  \"templates\": [\n    {\n      \"weekday\": 2,\n      \"slots\": [\n        { \"start\": \"09:00\", \"end\": \"12:00\" },\n        { \"start\": \"14:00\", \"end\": \"17:00\" }\n      ]\n    },\n    {\n      \"weekday\": 3,\n      \"slots\": [\n        { \"start\": \"10:00\", \"end\": \"13:00\" }\n      ]\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/provider/availability",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"provider",
+										"availability"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ0MmRiMjM2YzFiNjUyMGNmNjU5ODIiLCJleHAiOjE3NTA1OTQ5MTcsImlhdCI6MTc0OTI5ODkxN30.9Bq4O1bVILsO_AYFRObGgQUUENZsA0oTQfnzIDPrV4c",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"email\":\"mawai@yopmail.com\",\n\"password\":\"mawai@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/admin/auth/login",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"admin",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "bookings",
+					"item": [
+						{
+							"name": "all bookings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/admin/bookings?page=1&limit=10&search=test",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"admin",
+										"bookings"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "search",
+											"value": "test"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM2ZmEwMDk1ODI3YmFkNmUwNzljZWYiLCJleHAiOjE3NTA2MTkzMDMsImlhdCI6MTc0OTMyMzMwM30.S6rlmB-kZUSy6_WfacpVSzDXUlw_k-qrkTI8gC_giiA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
