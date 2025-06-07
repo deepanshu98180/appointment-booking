@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  app:
+    build: .
+    container_name: appointment-booking-app
+    ports:
+      - "2408:2408"
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+    volumes:
+      - .:/app
+    command: npm start
+
+  mongo:
+    image: mongo:7
+    container_name: appointment-booking-db
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

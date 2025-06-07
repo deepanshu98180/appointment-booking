@@ -24,6 +24,12 @@ This document outlines areas where ChatGPT was used during the development of th
      - Project structure explanation
      - API documentation
      - `.env` and Postman collection guidance
+     - Docker setup instructions 
+
+5. **Docker Setup**
+   - Provided step-by-step assistance
+   - Writing the Dockerfile and docker-compose.yml
+
 
 ---
 

@@ -56,6 +56,22 @@ The server will run at `http://localhost:2408`.
 
 ---
 
+## Running with Docker
+Make sure Docker and docker-compose are installed and running on your system.
+
+Update your .env file as follows to connect to the MongoDB container:
+
+MONGO_URI=mongodb://mongo:27017/provider_booking
+DB=provider_booking
+DB_HOST=mongo
+DB_PORT=27017
+Run the entire app with MongoDB using Docker Compose:
+
+
+docker-compose up --build
+The application will be available at http://localhost:2408.
+
+
 ## API Documentation
 
 You can test the API endpoints using the provided Postman collection.
