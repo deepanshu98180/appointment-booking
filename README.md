@@ -52,7 +52,7 @@ A scalable backend API for a multi-provider appointment booking system built wit
    npm start
    ```
 
-The server will run at `http://localhost:2408`.
+The server will run at `http://localhost:2408/api/v1`.
 
 ---
 
@@ -61,16 +61,18 @@ Make sure Docker and docker-compose are installed and running on your system.
 
 Update your .env file as follows to connect to the MongoDB container:
 
+   ```bash
 MONGO_URI=mongodb://mongo:27017/provider_booking
 DB=provider_booking
 DB_HOST=mongo
 DB_PORT=27017
+   ```
+   ```bash
 Run the entire app with MongoDB using Docker Compose:
-
-
 docker-compose up --build
-The application will be available at http://localhost:2408.
-
+The application will be available at http://localhost:2408/api/v1.
+   ```
+---
 
 ## API Documentation
 

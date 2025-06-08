@@ -10,9 +10,9 @@ services:
       - .env
     depends_on:
       - mongo
-    volumes:
-      - .:/app
-    command: npm start
+    # volumes:
+    #   - .:/app
+    command: npx nodemon src/server.js
 
   mongo:
     image: mongo:7
