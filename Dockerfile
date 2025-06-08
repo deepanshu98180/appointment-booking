@@ -7,14 +7,16 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install -g nodemon
+# Install project dependencies
+RUN npm install
 
-# Copy source files
+# RUN npm install -g nodemon
+
+# Copy rest of the source files
 COPY . .
 
 # Expose the app port
 EXPOSE 2408
 
-# Start the app
+# Start the app with nodemon
 CMD ["npx", "nodemon", "src/server.js"]
